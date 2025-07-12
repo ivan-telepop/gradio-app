@@ -41,11 +41,11 @@ def on_model_change(model):
 
 
 with gr.Blocks() as actualChat:
-    gr.Markdown("🖥 Chat with Ollama [ Ivan Goncharov ]")
+    gr.Markdown("🖥 Чат с Ollama - приложение [ Ivan Goncharov ]")
     with gr.Row():
         model_dropdown = gr.Dropdown(choices=OLLAMA_MODELS, value=selected_model, label="Выбор модели")
         model_dropdown.change(on_model_change, inputs=[model_dropdown], outputs=gr.Textbox(visible=False))
-        start_button = gr.Button("Start Ollama Model")
+        start_button = gr.Button("Запуск модели Ollama")
     status = gr.Textbox(label="Статус запуска", interactive=False)
     start_button.click(fn=start_model, inputs=[model_dropdown], outputs=[status])
     chatbot = gr.Chatbot(label="Чат с моделью")
